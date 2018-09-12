@@ -38,7 +38,7 @@ class User
     /**
      * @ORM\Column(type="integer")
      */
-    private $Age;
+    private $age;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -108,12 +108,12 @@ class User
 
     public function getAge(): ?int
     {
-        return $this->Age;
+        return $this->age;
     }
 
     public function setAge(int $Age): self
     {
-        $this->Age = $Age;
+        $this->Age = $age;
 
         return $this;
     }

@@ -16,11 +16,10 @@ class RegistrationType extends AbstractType
             ->add('email')
             ->add('password')
             ->add('confirm_password')
-            ->add('Age')
+            ->add('age')
             ->add('family')
             ->add('race')
             ->add('food')
-            ->add('contacts')
         ;
     }
 
