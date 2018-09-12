@@ -188,7 +188,7 @@ class User implements UserInterface
 
     public function getRoles() 
     {
-        returun ['ROLE_USER'];
+        return ['ROLE_USER'];
     }
 
     /**
