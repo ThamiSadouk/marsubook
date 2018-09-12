@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %} {{ title }} !{% endblock %}
 
 {% block body %}
 
@@ -41,7 +41,7 @@
           </tr>
         </thead>
         <tbody>
-          {# {% for contact in contacts %}
+          {% for contact in contacts %}
             <tr>
               <td>{{ contact.firstName }}</td>
               <td>{{ contact.lastName }}</td>
@@ -51,12 +51,12 @@
               <td>{{ contact.createdAt | date('d/m/Y') }}</td>
               <td>
                 <div class="d-flex justify content-center">
-                  <a class="btn btn-warning" href=" {{ path('edit_contact', { 'id' : contact.id   }) }}" role="button" >Modifier</a>
+                  <a class="btn btn-warning" href="#" role="button" >Modifier</a>
                   <button class="btn btn-danger">Effacer</button>
                 </div>
               </td>
             </tr>
-          {% endfor %} #}
+          {% endfor %}
         </tbody>
       </table> 
     </div>

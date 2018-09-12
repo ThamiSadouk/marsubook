@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Contact;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BookController extends AbstractController
 {
@@ -12,8 +13,14 @@ class BookController extends AbstractController
      */
     public function index()
     {
+        $repo = $this->getDoctrine()->getRepository(Contact::class); 
+
+        // get all the contacts from the DB
+        $contacts = $repo->findAll(); 
+
         return $this->render('book/index.html.twig', [
-            'controller_name' => 'BookController',
+            'title' => 'Hello Marsupilami !',
+            'contacts' => $contacts
         ]);
     }
 }
