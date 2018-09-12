@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %} "helloo !" !{% endblock %}
+</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
         {% block stylesheets %}{% endblock %}
     </head>
@@ -16,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="btn btn-outline-warning" href="#" role="button" >Ajouter un Marsupilami</a>
+                        <a class="btn btn-outline-warning" href=" {{ path('add_contact') }}" role="button" >Ajouter un Marsupilami</a>
                     </li>
                 </ul>
                 

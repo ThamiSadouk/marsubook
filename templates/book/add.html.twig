@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formContact 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+
+  <h2>
+    {% if editMode %}
+      Ajoutez un nouveau contact
+    {% else %}
+      Modifier le contact
+    {% endif %}
+  </h2>
+
+    {{ form_start(formContact) }}
+    
+      {{ form_row(formContact.firstName, {'attr' : {'placeholder': "Marsu"}}) }}
+      {{ form_row(formContact.lastName, {'attr' : {'placeholder': "Lami"}}) }}
+      {{ form_row(formContact.phone, {'attr' : {'placeholder': "+33634928"}}) }}
+      {{ form_row(formContact.email, {'attr' : {'placeholder': "marsu@gmail.com"}}) }}
+      {{ form_row(formContact.address, {'attr' : {'placeholder': "la grotte chaude"}}) }}
+
+      <button class="btn btn-success">
+      {% if editMode %}
+        Enregistrer
+      {% else %}
+        Ajouter
+      {% endif %}
+      </button>    
+
+  {{ form_end(formContact) }}
+{% endblock %}
