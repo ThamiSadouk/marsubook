@@ -10,16 +10,19 @@ class ContactFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create('fr_FR'); 
+
+
         for($i = 1; $i <= 10; $i++) 
         {
             $contact = new Contact(); 
 
-            $contact->setFirstName('zdlfkjdf')
-                    ->setLastName('dfklhdf')
-                    ->setEmail('thami.sadouk@outlok.dr')
-                    ->setPhone('239249')
-                    ->setAddress('ùlkfhd')
-                    ->setCreatedAt(new \DateTime());
+            $contact->setFirstName($faker->firstName($gender = 'male'|'female'))
+                    ->setLastName($faker->lastName)
+                    ->setEmail($faker->email)
+                    ->setPhone($faker->e164PhoneNumber)
+                    ->setAddress($faker->address)
+                    ->setCreatedAt($faker->dateTimeBetween('-6 montds'));
             
             $manager->persist($contact); 
 
