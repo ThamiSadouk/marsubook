@@ -12,7 +12,7 @@ class ContactFixtures extends Fixture
     {
         $faker = \Faker\Factory::create('fr_FR'); 
 
-
+        // create 10 fake contacts
         for($i = 1; $i <= 10; $i++) 
         {
             $contact = new Contact(); 

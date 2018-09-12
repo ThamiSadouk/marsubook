@@ -23,7 +23,7 @@ class BookController extends AbstractController
 
         return $this->render('book/index.html.twig', [
             'title' => 'Hello Marsupilami !',
-            'contacts' => $contacts
+            'contacts' => $contacts, 
         ]);
     }
 
