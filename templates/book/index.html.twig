@@ -28,7 +28,7 @@
     <h2>Mon Carnet d'Adresses</h2>
 
     <div class="row">
-      <table class="table table-hover">
+      <table id="contacts" class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Prénom</th>
@@ -52,7 +52,7 @@
               <td>
                 <div class="d-flex justify content-center">
                   <a class="btn btn-warning" href=" {{ path('edit_contact', {'id' : contact.id}) }}" role="button" >Modifier</a>
-                  <button class="btn btn-danger">Effacer</button>
+                  <a class="btn btn-danger" href=" {{ path('delete_contact', {'id' : contact.id}) }}" role="button" >supprimer</a>
                 </div>
               </td>
             </tr>
@@ -61,5 +61,4 @@
       </table> 
     </div>
   </section>
-
 {% endblock %}

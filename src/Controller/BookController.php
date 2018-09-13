@@ -6,8 +6,10 @@ use App\Entity\Contact;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class BookController extends AbstractController
 {
@@ -65,4 +67,24 @@ class BookController extends AbstractController
         ]); 
     }
 
+    /** 
+     * @Route("/delete/{id}", name="delete_contact")
+     */
+    public function delete($id) 
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $contact = $manager->getRepository(Contact::class)->find($id); 
+
+        if (!$contact) {
+            throw $this->createNotFoundException(
+                'Le contact n\a pas été trouvé'
+            ); 
+        }
+
+        $manager->remove($contact);
+        $manager->flush(); 
+
+        return $this->redirectToRoute('home'); 
+    }
 }
