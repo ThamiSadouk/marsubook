@@ -16,6 +16,8 @@ class BookController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser(); 
+
         $repo = $this->getDoctrine()->getRepository(Contact::class); 
 
         // get all the contacts from the DB
@@ -24,6 +26,7 @@ class BookController extends AbstractController
         return $this->render('book/index.html.twig', [
             'title' => 'Hello Marsupilami !',
             'contacts' => $contacts,
+            'user' => $user
         ]);
     }
 
@@ -45,7 +48,7 @@ class BookController extends AbstractController
         
         if($form->isSubmitted() && ($form->isValid())) 
         {   
-            // if the contact already exist we don't want to set a new Datetime
+            // if the contact doesn't exist we set a new Datetime
             if(!$contact->getId()) {
                 $contact->setCreatedAt(new \Datetime()); 
             } 

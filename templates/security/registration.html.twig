@@ -4,7 +4,11 @@
 
 {% block body %}
 
-  <h1>Veuillez vous inscrire ! </h1>
+  {% if editMode %}
+    <h1>Veuillez vous inscrire ! </h1>
+  {% else %}
+    <h1>Modifiez votre profil</h1>
+  {% endif %}
 
   {{ form_start(form) }}
 
@@ -17,7 +21,11 @@
   {{ form_row(form.race, {'label': 'race'}) }}
   {{ form_row(form.food, {'label': 'Nourriture', 'attr': {'placeholder': 'poisson'}}) }}
 
-  <button type="submit" class="btn btn-success">Inscription</button>
+  {% if editMode %}
+    <button type="submit" class="btn btn-success">Inscription</button>
+  {% else %}
+    <button type="submit" class="btn btn-success">Modifier profil</button>
+  {% endif %}
 
   {{ form_end(form) }}
 

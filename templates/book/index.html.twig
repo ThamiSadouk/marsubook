@@ -11,14 +11,15 @@
       </div>
       <div class="col-md-6 details">
         <blockquote>
-          <h5>Fiona Gallagher</h5>
-          <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
+          <h5>{{ user.username }}</h5>
+          <small><cite title="Source Title">{{ user.age }} ans, de la famille {{ user.family }}<i class="icon-map-marker"></i></cite></small>
         </blockquote>
         <p>
-          fionagallager@shameless.com <br>
-          www.bootsnipp.com <br>
-          June 18, 1990
+          {{ user.email}} <br>
+          race : {{ user.race }} <br>
+          nourriture préférée : {{ user.food}}
         </p>
+        <a class="btn btn-warning" href="{{ path('security_profil', {'id': user.id }) }}" role="button" >Modifier profil</a>
       </div>
     </div>
   </section>
