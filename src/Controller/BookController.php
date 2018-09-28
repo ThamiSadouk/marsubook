@@ -18,6 +18,7 @@ class BookController extends AbstractController
      */
     public function index()
     {
+        // ???
         $user = $this->getUser(); 
 
         $repo = $this->getDoctrine()->getRepository(Contact::class); 
@@ -52,7 +53,7 @@ class BookController extends AbstractController
         {   
             // if the contact doesn't exist we set a new Datetime
             if(!$contact->getId()) {
-                $contact->setCreatedAt(new \Datetime()); 
+                $contact->setCreatedAt(new \Datetime());
             } 
 
             $manager->persist($contact); 
